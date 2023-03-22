@@ -6,12 +6,14 @@ import javax.swing.*;
 
 
 public class TicTacToe implements ActionListener {
+
+    private static final int GAME_FIELD_SIZE =9;
     Random random = new Random();
     JFrame frame = new JFrame();
     JPanel titlePanel = new JPanel();
     JPanel buttonPanel = new JPanel();
     JLabel textField = new JLabel();
-    JButton[] buttons = new JButton[9];
+    JButton[] buttons = new JButton[GAME_FIELD_SIZE];
     boolean player1Turn;
 
     TicTacToe(){
@@ -23,7 +25,7 @@ public class TicTacToe implements ActionListener {
 
         textField.setBackground(new Color(25,25,25));
         textField.setForeground(new Color(25,255,0));
-        textField.setFont(new Font("Ink Free",Font.BOLD,75));
+        textField.setFont(new Font("Imprint MT Shadow",Font.BOLD,75));
         textField.setHorizontalAlignment(JLabel.CENTER);
         textField.setText("Tic Tac Toe");
         textField.setOpaque(true);
@@ -38,7 +40,7 @@ public class TicTacToe implements ActionListener {
         frame.add(titlePanel, BorderLayout.NORTH);
         frame.add(buttonPanel);
 
-        for(int i=0;i<9;i++) {
+        for(int i=0;i<GAME_FIELD_SIZE;i++) {
             buttons[i] = new JButton();
             buttonPanel.add(buttons[i]);
             buttons[i].setFont(new Font("MV Boli",Font.BOLD,120));
@@ -57,7 +59,7 @@ public class TicTacToe implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for(int i=0;i<9;i++) {
+        for(int i=0;i<GAME_FIELD_SIZE;i++) {
             if(e.getSource()==buttons[i]) {
                 if(player1Turn) {
                     if(buttons[i].getText()=="") {
@@ -221,7 +223,7 @@ public class TicTacToe implements ActionListener {
         buttons[b].setBackground(Color.GREEN);
         buttons[c].setBackground(Color.GREEN);
 
-        for(int i=0;i<9;i++) {
+        for(int i=0;i<GAME_FIELD_SIZE;i++) {
             buttons[i].setEnabled(false);
         }
         textField.setText("X wins");
@@ -231,7 +233,7 @@ public class TicTacToe implements ActionListener {
         buttons[b].setBackground(Color.GREEN);
         buttons[c].setBackground(Color.GREEN);
 
-        for(int i=0;i<9;i++) {
+        for(int i=0;i<GAME_FIELD_SIZE;i++) {
             buttons[i].setEnabled(false);
         }
         textField.setText("O wins");
